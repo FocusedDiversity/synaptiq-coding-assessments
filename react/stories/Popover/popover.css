@@ -1,0 +1,26 @@
+.popover {
+    font-family: Inter, sans-serif, serif;
+    position: relative;
+    display: inline-block;
+}
+
+.activator {
+    cursor: pointer;
+}
+
+.content {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+.popover.active .content {
+    display: block;
+}
