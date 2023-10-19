@@ -47,7 +47,7 @@ next-env.d.ts
 # storybook
 storybook-static
 
-# misc
+# IDE
 
 .DS_Store
 .idea/
