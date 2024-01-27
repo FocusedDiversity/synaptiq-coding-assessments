@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
 
 import Week from "./Week";
-import { getWeeksForMonth, monthNames } from "../../lib/dates";
+import { getWeeksForMonth, MONTH_NAMES, WEEKDAY_NAMES } from "../../lib/dates";
 import { format } from "date-fns";
 
 interface DatePickerProps {
@@ -63,7 +63,7 @@ const DatePicker = ({
               onClick={() => handleMonthDecrease(month - 1)}
             />
             <div className="select-none">
-              {monthNames[month]} {year}
+              {MONTH_NAMES[month]} {year}
             </div>
             <ChevronRightIcon
               className="w-6 h-6 cursor-pointer hover:bg-neutral-300 rounded-md transition-[background-color]"
@@ -72,7 +72,7 @@ const DatePicker = ({
           </div>
           <div className="flex flex-col w-full">
             <div className="flex select-none">
-              {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((day, index) => (
+              {WEEKDAY_NAMES.map((day, index) => (
                 <div
                   key={index}
                   className="flex justify-center flex-1 text-neutral-500"
