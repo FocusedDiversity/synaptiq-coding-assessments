@@ -1,7 +1,7 @@
 import Day from "./Day";
 
 interface WeekProps {
-  days: (number | string | null)[];
+  days: (Date | string | null)[];
 }
 
 const Week = ({ days }: WeekProps) => (

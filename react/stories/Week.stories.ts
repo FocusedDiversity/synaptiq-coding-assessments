@@ -15,6 +15,14 @@ type Story = StoryObj<typeof meta>;
 
 export const Week: Story = {
   args: {
-    days: [null, null, null, 1, 2, 3, 4],
+    days: [
+      null,
+      null,
+      null,
+      new Date(2021, 0, 1),
+      new Date(2021, 0, 2),
+      new Date(2021, 0, 3),
+      new Date(2021, 0, 4),
+    ],
   },
 };
