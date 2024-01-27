@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { getWeeksForMonth } from "../../lib/dates";
 import Month from "./Month";
@@ -15,6 +15,8 @@ const DatePicker = ({
   year: yearParam,
   selectedDate: selectedDateParam,
 }: DatePickerProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+
   const [month, setMonth] = useState<number>(
     monthParam || new Date().getMonth()
   );
@@ -25,6 +27,7 @@ const DatePicker = ({
 
   const weeksForMonth = getWeeksForMonth(month, year);
 
+  const [inputValue, setInputValue] = useState<string>("");
   const [selectedDate, setSelectedDate] = useState<Date | null>(
     selectedDateParam || null
   );
@@ -47,12 +50,30 @@ const DatePicker = ({
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setIsDatePickerOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref]);
+
   return (
-    <>
+    <div ref={ref}>
       <Input
         selectedDate={selectedDate}
         setIsDatePickerOpen={setIsDatePickerOpen}
         setSelectedDate={setSelectedDate}
+        setYear={setYear}
+        setMonth={setMonth}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
       />
       {isDatePickerOpen && (
         <Month
@@ -63,10 +84,11 @@ const DatePicker = ({
           weeksForMonth={weeksForMonth}
           selectedDate={selectedDate}
           setSelectedDate={setSelectedDate}
+          setInputValue={setInputValue}
           setIsDatePickerOpen={setIsDatePickerOpen}
         />
       )}
-    </>
+    </div>
   );
 };
 

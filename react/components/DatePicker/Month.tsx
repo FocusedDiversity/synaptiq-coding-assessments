@@ -1,6 +1,7 @@
+import { format } from "date-fns";
+
 import Week from "./Week";
 import { WEEKDAY_NAMES } from "../../lib/dates";
-
 import Header from "./Header";
 
 interface MonthProps {
@@ -11,6 +12,7 @@ interface MonthProps {
   weeksForMonth: (Date | null)[][];
   selectedDate: Date | null;
   setSelectedDate: (date: Date) => void;
+  setInputValue: (value: string) => void;
   setIsDatePickerOpen: (isOpen: boolean) => void;
 }
 
@@ -22,6 +24,7 @@ const Month = ({
   weeksForMonth,
   selectedDate,
   setSelectedDate,
+  setInputValue,
   setIsDatePickerOpen,
 }: MonthProps) => (
   <div className="flex justify-center items-center w-full flex-col gap-2 border border-gray-300 rounded-md shadow-sm p-2 mt-2">
@@ -50,6 +53,7 @@ const Month = ({
           setSelectedDate={(date) => {
             setSelectedDate(date);
             setIsDatePickerOpen(false);
+            setInputValue(format(date, "yyyy/MM/dd"));
           }}
         />
       ))}
