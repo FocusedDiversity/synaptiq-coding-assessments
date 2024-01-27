@@ -25,8 +25,8 @@ const DatePicker = ({
 
   const weeksForMonth = getWeeksForMonth(month, year);
 
-  const [selectedDate, setSelectedDate] = useState<Date>(
-    selectedDateParam || new Date()
+  const [selectedDate, setSelectedDate] = useState<Date | null>(
+    selectedDateParam || null
   );
 
   const handleMonthIncrease = (month: number) => {
@@ -52,6 +52,7 @@ const DatePicker = ({
       <Input
         selectedDate={selectedDate}
         setIsDatePickerOpen={setIsDatePickerOpen}
+        setSelectedDate={setSelectedDate}
       />
       {isDatePickerOpen && (
         <Month

@@ -9,7 +9,7 @@ interface MonthProps {
   handleMonthDecrease: (month: number) => void;
   handleMonthIncrease: (month: number) => void;
   weeksForMonth: (Date | null)[][];
-  selectedDate: Date;
+  selectedDate: Date | null;
   setSelectedDate: (date: Date) => void;
   setIsDatePickerOpen: (isOpen: boolean) => void;
 }

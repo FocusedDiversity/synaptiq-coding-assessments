@@ -28,7 +28,7 @@ const Day = ({ day, selectedDate, setSelectedDate }: DayProps) => {
         day && isSelected && "hover:bg-neutral-700",
         day && !isSelected && "hover:bg-neutral-300",
         day && "cursor-pointer",
-        isToday && "font-semibold"
+        isToday && "font-bold"
       )}
       onClick={() => day && setSelectedDate(day)}
     >

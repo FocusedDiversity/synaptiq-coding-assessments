@@ -10,7 +10,8 @@
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
