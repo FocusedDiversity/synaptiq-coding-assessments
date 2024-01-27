@@ -74,6 +74,85 @@ describe("Input", () => {
     expect(setSelectedDate).toHaveBeenCalledWith(toDate("2021/01/01"));
   });
 
+  it("should add one day to the selected date if the date is a valid date string and the user hits the 'ArrowDown' key", async () => {
+    const date = new Date();
+    const setSelectedDate = jest.fn();
+    const setInputValue = jest.fn();
+
+    render(
+      <Input
+        selectedDate={date}
+        setIsDatePickerOpen={() => null}
+        setSelectedDate={setSelectedDate}
+        setYear={() => null}
+        setMonth={() => null}
+        inputValue="2021/01/01"
+        setInputValue={setInputValue}
+      />
+    );
+
+    const input = await screen.getByTestId("date-input");
+
+    input.focus();
+
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+
+    expect(setSelectedDate).toHaveBeenCalledWith(toDate("2021/01/02"));
+    expect(setInputValue).toHaveBeenCalledWith("2021/01/02");
+  });
+
+  it("should subtract one day to the selected date if the date is a valid date string and the user hits the 'ArrowUp' key", async () => {
+    const date = new Date();
+    const setSelectedDate = jest.fn();
+    const setInputValue = jest.fn();
+
+    render(
+      <Input
+        selectedDate={date}
+        setIsDatePickerOpen={() => null}
+        setSelectedDate={setSelectedDate}
+        setYear={() => null}
+        setMonth={() => null}
+        inputValue="2021/01/01"
+        setInputValue={setInputValue}
+      />
+    );
+
+    const input = await screen.getByTestId("date-input");
+
+    input.focus();
+
+    fireEvent.keyDown(input, { key: "ArrowUp" });
+
+    expect(setSelectedDate).toHaveBeenCalledWith(toDate("2020/12/31"));
+    expect(setInputValue).toHaveBeenCalledWith("2020/12/31");
+  });
+
+  it("should close the date picker if the user hits the 'Escape' key", async () => {
+    const date = new Date();
+    const setIsDatePickerOpen = jest.fn();
+
+    render(
+      <Input
+        selectedDate={date}
+        setIsDatePickerOpen={setIsDatePickerOpen}
+        setSelectedDate={() => null}
+        setYear={() => null}
+        setMonth={() => null}
+        inputValue="2021/01/01"
+        setInputValue={() => null}
+      />
+    );
+
+    const input = await screen.getByTestId("date-input");
+
+    input.focus();
+
+    fireEvent.keyDown(input, { key: "Escape" });
+
+    expect(setIsDatePickerOpen).toHaveBeenCalledWith(false);
+  });
+
   it("should clear the selected date if the clear icon is clicked", async () => {
     const date = new Date();
     const setInputValue = jest.fn();
