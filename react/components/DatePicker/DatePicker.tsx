@@ -1,8 +1,12 @@
 import { useState, ChangeEvent } from "react";
 
-interface DatePickerProps {}
+import Week from "./Week";
 
-const DatePicker = () => {
+interface DatePickerProps {
+  weeks: (number | null)[][];
+}
+
+const DatePicker = ({ weeks }: DatePickerProps) => {
   const [selectedDate, setSelectedDate] = useState<string>("");
 
   const handleDateChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -10,13 +14,13 @@ const DatePicker = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <input
-        type="date"
-        className="p-2 border rounded-md"
-        value={selectedDate}
-        onChange={handleDateChange}
-      />
+    <div className="flex justify-center items-center w-full">
+      <div className="flex flex-col">
+        <Week days={["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]} />
+        {weeks.map((week, index) => (
+          <Week key={index} days={week} />
+        ))}
+      </div>
     </div>
   );
 };

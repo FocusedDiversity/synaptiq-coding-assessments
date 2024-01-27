@@ -2,25 +2,25 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import DatePickerComponent from "../components/DatePicker/index";
 
-// More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
   title: "Example/DatePicker/DatePicker",
   component: DatePickerComponent,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
-  },
-
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: "color" },
   },
 } satisfies Meta<typeof DatePickerComponent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const DatePicker: Story = {
-  args: {},
+  args: {
+    weeks: [
+      [null, null, null, 1, 2, 3, 4],
+      [5, 6, 7, 8, 9, 10, 11],
+      [12, 13, 14, 15, 16, 17, 18],
+      [19, 20, 21, 22, 23, 24, 25],
+      [26, 27, 28, 29, 30, 31, null],
+    ],
+  },
 };
