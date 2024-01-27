@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 import Day from "./Day";
 
@@ -28,5 +28,19 @@ describe("Day", () => {
     );
 
     expect(container.firstChild).toHaveClass("bg-neutral-600 text-white");
+  });
+
+  it("should set the selected date", async () => {
+    const date = new Date();
+    const setSelectedDate = jest.fn();
+    render(
+      <Day day={date} selectedDate={date} setSelectedDate={setSelectedDate} />
+    );
+
+    const dayDiv = await screen.getByTestId(`day-${date.getDate()}`);
+
+    fireEvent.click(dayDiv);
+
+    expect(setSelectedDate).toHaveBeenCalledWith(date);
   });
 });

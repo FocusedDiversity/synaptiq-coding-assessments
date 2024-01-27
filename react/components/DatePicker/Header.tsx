@@ -19,6 +19,7 @@ const Header = ({
     <ChevronLeftIcon
       className="w-6 h-6 cursor-pointer hover:bg-neutral-300 rounded-md transition-[background-color]"
       onClick={() => handleMonthDecrease(month - 1)}
+      data-testid="decrease-month"
     />
     <div className="select-none">
       {MONTH_NAMES[month]} {year}
@@ -26,6 +27,7 @@ const Header = ({
     <ChevronRightIcon
       className="w-6 h-6 cursor-pointer hover:bg-neutral-300 rounded-md transition-[background-color]"
       onClick={() => handleMonthIncrease(month + 1)}
+      data-testid="increase-month"
     />
   </div>
 );

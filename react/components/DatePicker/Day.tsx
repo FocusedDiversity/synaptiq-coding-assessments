@@ -31,6 +31,7 @@ const Day = ({ day, selectedDate, setSelectedDate }: DayProps) => {
         isToday && "font-bold"
       )}
       onClick={() => day && setSelectedDate(day)}
+      data-testid={`day-${day?.getDate()}`}
     >
       {day && day.getDate()}
     </div>
