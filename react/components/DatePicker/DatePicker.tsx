@@ -7,11 +7,13 @@ import { getWeeksForMonth, monthNames } from "../../lib/dates";
 interface DatePickerProps {
   month?: number;
   year?: number;
+  selectedDate?: Date;
 }
 
 const DatePicker = ({
   month: monthParam,
   year: yearParam,
+  selectedDate,
 }: DatePickerProps) => {
   const [month, setMonth] = useState<number>(
     monthParam || new Date().getMonth()
@@ -22,11 +24,11 @@ const DatePicker = ({
 
   const weeksForMonth = getWeeksForMonth(month, year);
 
-  const [selectedDate, setSelectedDate] = useState<string>("");
+  // const [selectedDate, setSelectedDate] = useState<string>("");
 
-  const handleDateChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedDate(event.target.value);
-  };
+  // const handleDateChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setSelectedDate(event.target.value);
+  // };
 
   return (
     <div className="flex justify-center items-center w-full flex-col gap-2">
@@ -40,7 +42,7 @@ const DatePicker = ({
       <div className="flex flex-col">
         <Week days={["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]} />
         {weeksForMonth.map((week, index) => (
-          <Week key={index} days={week} />
+          <Week key={index} days={week} selectedDate={selectedDate} />
         ))}
       </div>
     </div>

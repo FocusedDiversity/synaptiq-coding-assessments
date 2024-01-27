@@ -2,12 +2,13 @@ import Day from "./Day";
 
 interface WeekProps {
   days: (Date | string | null)[];
+  selectedDate?: Date;
 }
 
-const Week = ({ days }: WeekProps) => (
+const Week = ({ days, selectedDate }: WeekProps) => (
   <div className="flex justify-between w-full">
     {days.map((day, index) => (
-      <Day key={index} day={day} />
+      <Day key={index} day={day} selectedDate={selectedDate} />
     ))}
   </div>
 );
