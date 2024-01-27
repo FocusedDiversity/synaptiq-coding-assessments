@@ -1,12 +1,38 @@
-# Synaptiq React Skills Test
+# README
 
-## Your mission
+## Testing
+
+Run tests as follows:
+
+```
+$ yarn test
+```
+
+Run tests including coverage as follows:
+
+```
+$ yarn test:coverage
+```
+
+This will create a directory called `/coverage` in this directory. The output of the tests will look something like:
+
+<img width="603" alt="image" src="https://github.com/frodosamoa/synaptiq-coding-assessments/assets/1582620/0f27114b-ead4-474c-a9e7-cb76787c1d7e">
+
+### Date Picker Features & Capabilities
+
+- Once a date is selected, you can use the up key to decrease the date by one day and the down arrow key to increase the date by one day
+
+---
+
+### Synaptiq React Skills Test
+
+#### Your mission
 
 Create a new "combined date" control as described in the shopify polaris "patterns"
 documentation at https://polaris.shopify.com/patterns/date-picking/single-date
 
     - You should fork this repository and open a pull request against it with your changes.
-    - Your code should compile and test cleanly via github actions. 
+    - Your code should compile and test cleanly via github actions.
         - Opening a pull request will verify this
         - You can also use `act -C..` from https://github.com/nektos/act to run locally
     -You should build off the framework and tools in this repo, namely:

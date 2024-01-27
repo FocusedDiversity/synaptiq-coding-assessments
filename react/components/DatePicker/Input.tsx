@@ -1,6 +1,9 @@
 import { CalendarDaysIcon, XCircleIcon } from "@heroicons/react/16/solid";
 import { toDate } from "date-fns/toDate";
 import { isValid } from "date-fns/isValid";
+import { add } from "date-fns/add";
+import { sub } from "date-fns/sub";
+import { format } from "date-fns/format";
 import { useEffect, useRef } from "react";
 
 interface InputProps {
@@ -66,14 +69,26 @@ const Input = ({
             setInputValue(e.target.value);
           }}
           onKeyDown={(e) => {
-            if (
-              e.key === "Enter" &&
-              inputValue.match(/\d{4}\/\d{2}\/\d{2}/g) &&
-              isValid(toDate(inputValue))
-            ) {
+            const inputDate = toDate(inputValue);
+            const isValidDate =
+              inputValue.match(/\d{4}\/\d{2}\/\d{2}/g) && isValid(inputDate);
+
+            if (e.key === "Enter" && isValidDate) {
               setIsDatePickerOpen(false);
-              setSelectedDate(toDate(inputValue));
+              setSelectedDate(inputDate);
               inputRef.current?.blur();
+            }
+
+            if (e.key === "ArrowDown") {
+              const datePlusOne = add(inputDate, { days: 1 });
+              setSelectedDate(datePlusOne);
+              setInputValue(format(datePlusOne, "yyyy/MM/dd"));
+            }
+
+            if (e.key === "ArrowUp") {
+              const dateMinusOne = sub(inputDate, { days: 1 });
+              setSelectedDate(dateMinusOne);
+              setInputValue(format(dateMinusOne, "yyyy/MM/dd"));
             }
           }}
         />
