@@ -20,7 +20,11 @@ This will create a directory called `/coverage` in this directory. The output of
 
 ### Date Picker Features & Capabilities
 
-- Once a date is selected, you can use the up key to decrease the date by one day and the down arrow key to increase the date by one day
+- You can use the arrow keys to change the date, once a date is selected:
+  - up arrow key to decrease the date by seven days
+  - down arrow key to increase the date by seven day
+  - left arrow key to decrease the date by one day
+  - right arrow key to increase the date by one day
 - You can use the Escape key to close the Date Picker panel if it is open
 
 ---

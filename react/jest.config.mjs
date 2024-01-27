@@ -16,7 +16,7 @@ const config = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   testEnvironment: "jest-environment-jsdom",
   collectCoverageFrom: [
-    "components/**/*.{js,jsx,ts,tsx}",
+    "components/DatePicker/*.{js,jsx,ts,tsx}",
     "lib/**/*.{js,jsx,ts,tsx}",
   ],
   coveragePathIgnorePatterns: ["components/DatePicker/index.ts"],
