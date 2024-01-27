@@ -24,5 +24,7 @@ export const Week: Story = {
       new Date(2021, 0, 3),
       new Date(2021, 0, 4),
     ],
+    selectedDate: null,
+    setSelectedDate: () => {},
   },
 };

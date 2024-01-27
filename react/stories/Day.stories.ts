@@ -16,5 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Day: Story = {
   args: {
     day: new Date(),
+    selectedDate: null,
+    setSelectedDate: () => {},
   },
 };
