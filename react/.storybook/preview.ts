@@ -2,8 +2,6 @@ import type { Preview } from "@storybook/react";
 
 import "../app/globals.css";
 
-import { withThemeByClassName } from "@storybook/addon-themes";
-
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -14,17 +12,6 @@ const preview: Preview = {
       },
     },
   },
-
-  decorators: [
-    withThemeByClassName({
-      themes: {
-        // nameOfTheme: 'classNameForTheme',
-        light: "light",
-        dark: "dark",
-      },
-      defaultTheme: "light",
-    }),
-  ],
 };
 
 export default preview;
