@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 
-import Day from "./Day";
+import Day from "@/components/DatePicker/Day";
 
 describe("Day", () => {
   it("should render the number of the day", () => {

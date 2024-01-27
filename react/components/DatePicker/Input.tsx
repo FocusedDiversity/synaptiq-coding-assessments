@@ -1,5 +1,6 @@
 import { CalendarDaysIcon, XCircleIcon } from "@heroicons/react/16/solid";
-import { isValid, toDate } from "date-fns";
+import { toDate } from "date-fns/toDate";
+import { isValid } from "date-fns/isValid";
 import { useEffect, useRef } from "react";
 
 interface InputProps {
@@ -81,6 +82,7 @@ const Input = ({
             <XCircleIcon
               className="h-5 w-5 text-gray-400 cursor-pointer"
               aria-hidden="true"
+              data-testid="clear-date"
               onClick={() => {
                 setInputValue("");
                 setSelectedDate(null);
