@@ -73,6 +73,11 @@ const Input = ({
             const isValidDate =
               inputValue.match(/\d{4}\/\d{2}\/\d{2}/g) && isValid(inputDate);
 
+            if (e.key === "Escape") {
+              setIsDatePickerOpen(false);
+              inputRef.current?.blur();
+            }
+
             if (e.key === "Enter" && isValidDate) {
               setIsDatePickerOpen(false);
               setSelectedDate(inputDate);
