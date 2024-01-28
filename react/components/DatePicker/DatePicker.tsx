@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { Transition } from "@headlessui/react";
 
 import { getWeeksForMonth } from "../../lib/dates";
 import Month from "./Month";
@@ -77,7 +78,15 @@ const DatePicker = ({
         inputValue={inputValue}
         setInputValue={setInputValue}
       />
-      {isDatePickerOpen && (
+      <Transition
+        show={isDatePickerOpen}
+        enter="transition-[opacity,transform] duration-150"
+        enterFrom="opacity-0 -translate-y-2"
+        enterTo="opacity-100 translate-y-0"
+        leave="transition-[opacity,transform] duration-150"
+        leaveFrom="opacity-100 translate-y-0"
+        leaveTo="opacity-0 -translate-y-2"
+      >
         <Month
           month={month}
           year={year}
@@ -89,7 +98,7 @@ const DatePicker = ({
           setInputValue={setInputValue}
           setIsDatePickerOpen={setIsDatePickerOpen}
         />
-      )}
+      </Transition>
     </div>
   );
 };
