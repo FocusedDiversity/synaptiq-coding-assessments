@@ -81,11 +81,11 @@ const DatePicker = ({
       <Transition
         show={isDatePickerOpen}
         enter="transition-[opacity,transform] duration-150"
-        enterFrom="opacity-0 -translate-y-2"
-        enterTo="opacity-100 translate-y-0"
+        enterFrom="opacity-0 scale-95 -translate-y-2"
+        enterTo="opacity-100 scale-100 translate-y-0"
         leave="transition-[opacity,transform] duration-150"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 -translate-y-2"
+        leaveFrom="opacity-100 scale-100 translate-y-0"
+        leaveTo="opacity-0 scale-95 -translate-y-2"
       >
         <Month
           month={month}
