@@ -1,5 +1,8 @@
 # README
 
+This repository creates two ways to date pick according to the [Shopify Polaris "patterns"](https://polaris.shopify.com/patterns/date-picking/single-date)
+documentation for Date picking.
+
 ## Testing
 
 Run tests as follows:
@@ -26,6 +29,10 @@ This will create a directory called `/coverage` in this directory. The output of
   - left arrow key to decrease the date by one day
   - right arrow key to increase the date by one day
 - You can use the Escape key to close the Date Picker panel if it is open
+
+### Date List Features & Capabilities
+
+- Lets a user select a date from list
 
 ---
 
