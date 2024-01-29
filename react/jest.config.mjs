@@ -16,10 +16,14 @@ const config = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   testEnvironment: "jest-environment-jsdom",
   collectCoverageFrom: [
-    "components/DatePicker/*.{js,jsx,ts,tsx}",
+    "components/SingleDate/*.{js,jsx,ts,tsx}",
+    "components/DateList/*.{js,jsx,ts,tsx}",
     "lib/**/*.{js,jsx,ts,tsx}",
   ],
-  coveragePathIgnorePatterns: ["components/DatePicker/index.ts"],
+  coveragePathIgnorePatterns: [
+    "components/SingleDate/index.ts",
+    "components/DateList/index.ts",
+  ],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

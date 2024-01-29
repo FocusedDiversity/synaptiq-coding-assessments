@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 
 import SingleDate from "@/components/SingleDate";
 
@@ -6,11 +6,13 @@ describe("SingleDate", () => {
   it("should render the date picker", async () => {
     const { getByText } = render(<SingleDate month={0} year={2024} />);
 
-    expect(getByText("Single")).toBeInTheDocument();
+    expect(getByText("Single date")).toBeInTheDocument();
 
     const input = await screen.getByTestId("date-input");
 
-    fireEvent.click(input);
+    await act(async () => {
+      fireEvent.click(input);
+    });
 
     expect(getByText("January 2024")).toBeInTheDocument();
   });
@@ -20,11 +22,15 @@ describe("SingleDate", () => {
 
     const input = await screen.getByTestId("date-input");
 
-    fireEvent.click(input);
+    await act(async () => {
+      fireEvent.click(input);
+    });
 
     const increaseMonthButton = await screen.getByTestId("increase-month");
 
-    fireEvent.click(increaseMonthButton);
+    await act(async () => {
+      fireEvent.click(increaseMonthButton);
+    });
 
     expect(getByText("February 2024")).toBeInTheDocument();
   });
@@ -34,11 +40,15 @@ describe("SingleDate", () => {
 
     const input = await screen.getByTestId("date-input");
 
-    fireEvent.click(input);
+    await act(async () => {
+      fireEvent.click(input);
+    });
 
     const increaseMonthButton = await screen.getByTestId("increase-month");
 
-    fireEvent.click(increaseMonthButton);
+    await act(async () => {
+      fireEvent.click(increaseMonthButton);
+    });
 
     expect(getByText("January 2025")).toBeInTheDocument();
   });
@@ -48,11 +58,15 @@ describe("SingleDate", () => {
 
     const input = await screen.getByTestId("date-input");
 
-    fireEvent.click(input);
+    await act(async () => {
+      fireEvent.click(input);
+    });
 
     const decreaseMonthButton = await screen.getByTestId("decrease-month");
 
-    fireEvent.click(decreaseMonthButton);
+    await act(async () => {
+      fireEvent.click(decreaseMonthButton);
+    });
 
     expect(getByText("January 2024")).toBeInTheDocument();
   });
@@ -62,11 +76,15 @@ describe("SingleDate", () => {
 
     const input = await screen.getByTestId("date-input");
 
-    fireEvent.click(input);
+    await act(async () => {
+      fireEvent.click(input);
+    });
 
     const decreaseMonthButton = await screen.getByTestId("decrease-month");
 
-    fireEvent.click(decreaseMonthButton);
+    await act(async () => {
+      fireEvent.click(decreaseMonthButton);
+    });
 
     expect(getByText("December 2023")).toBeInTheDocument();
   });
