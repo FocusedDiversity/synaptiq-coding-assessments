@@ -86,25 +86,25 @@ const Input = ({
               inputRef.current?.blur();
             }
 
-            if (e.key === "ArrowRight") {
+            if (e.key === "ArrowRight" && isValidDate) {
               const datePlusOne = add(inputDate, { days: 1 });
               setSelectedDate(datePlusOne);
               setInputValue(format(datePlusOne, "yyyy/MM/dd"));
             }
 
-            if (e.key === "ArrowLeft") {
+            if (e.key === "ArrowLeft" && isValidDate) {
               const datePlusOne = sub(inputDate, { days: 1 });
               setSelectedDate(datePlusOne);
               setInputValue(format(datePlusOne, "yyyy/MM/dd"));
             }
 
-            if (e.key === "ArrowDown") {
+            if (e.key === "ArrowDown" && isValidDate) {
               const datePlusOne = add(inputDate, { days: 7 });
               setSelectedDate(datePlusOne);
               setInputValue(format(datePlusOne, "yyyy/MM/dd"));
             }
 
-            if (e.key === "ArrowUp") {
+            if (e.key === "ArrowUp" && isValidDate) {
               const dateMinusOne = sub(inputDate, { days: 7 });
               setSelectedDate(dateMinusOne);
               setInputValue(format(dateMinusOne, "yyyy/MM/dd"));

@@ -14,6 +14,12 @@ const DATES = [
   "Last Month",
 ];
 
+const kebabCase = (str: string) =>
+  str
+    .split(" ")
+    .map((word) => word.toLowerCase())
+    .join("-");
+
 const DateList = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string>(DATES[0]);
@@ -64,6 +70,7 @@ const DateList = () => {
                 selectedDate === date && "bg-gray-300",
                 "px-1.5 py-1 rounded-md cursor-pointer flex justify-between items-center"
               )}
+              data-testid={`date-item-${kebabCase(date)}`}
               onClick={() => {
                 setSelectedDate(date);
                 setIsPopoverOpen(false);

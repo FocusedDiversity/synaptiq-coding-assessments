@@ -16,4 +16,26 @@ describe("DateList", () => {
 
     expect(getByText("Today")).toBeInTheDocument();
   });
+
+  it("should render allow the user to select a date from the list", async () => {
+    const { getByText } = render(<DateList />);
+
+    expect(getByText("No Date")).toBeInTheDocument();
+
+    const input = await screen.getByTestId("date-button");
+
+    await act(async () => {
+      fireEvent.click(input);
+    });
+
+    const today = await screen.getByTestId("date-item-today");
+
+    await act(async () => {
+      fireEvent.click(today);
+    });
+
+    expect(getByText("Today")).toBeInTheDocument();
+
+    expect(screen.queryByText("No Date")).toBeNull();
+  });
 });
