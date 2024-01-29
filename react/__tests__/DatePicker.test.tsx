@@ -94,8 +94,6 @@ describe('<DatePicker />', () => {
     // click the next day in the month (tomorrow)
     await user.click(days[days.findIndex(elm => elm.className.includes(SELECTORS.SELECTED)) + 1]);
 
-    console.log(input.getAttribute('value'));
-
     // verify updated input value
     expect(input.getAttribute('value')).toEqual(dateWithoutTimezone(newValue).slice(0, 10));
   });
@@ -121,10 +119,9 @@ describe('<DatePicker />', () => {
 
     // focus on date input field
     fireEvent.focus(input);
-    // get current days
-    days = getDayButtons();
     // click the next month button
     await user.click(getNextButton());
+    // get current days
     days = getDayButtons();
     // click the first day in next month
     await user.click(days[0]);
@@ -154,10 +151,9 @@ describe('<DatePicker />', () => {
 
     // focus on date input field
     fireEvent.focus(input);
-    // get current days
-    days = getDayButtons();
     // click the previous month button
     await user.click(getPrevButton());
+    // get current days
     days = getDayButtons();
     // click the last day in next month
     await user.click(days[days.length - 1]);
