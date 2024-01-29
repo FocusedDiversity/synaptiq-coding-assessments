@@ -13,7 +13,7 @@ const config = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>//$1',
   },
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js', '<rootDir>/shopify.setup.js',  '<rootDir>/setupTests.js'],
   testEnvironment: 'jest-environment-jsdom'
 }
 

@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: rgba(198, 225, 217, 1);
+  --color-text: #312A29;
+  --color-primary: #CC5E58;
+  --color-primary-hover: #E06756;
+  --color-secondary: #1d6e6f;
+  --color-secondary-hover: #00bda5;
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--background) !important;  /* overwrite polars CSS */
+}
+
+h1 {
+  color: var(--color-text);
+  font-size: 90px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: unset;
+  letter-spacing: 0px;
+  line-height: 1.1em;
+}
+
+@media(max-width: 767px) {
+  h1 {
+    font-size: 50px;
+  }
+}
+
+h2 {
+  color: var(--color-text);
+  font-size: 72px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: unset;
+  letter-spacing: 0px;
+  line-height: 1.1em;
+}
+
+@media(max-width: 767px) {
+  h2 {
+    font-size: 40px;
+  }
+}
+
+h3 {
+  color: var(--color-text);
+  font-size: 37px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: unset;
+  letter-spacing: 0px;
+  line-height: 1.3em;
+}
+
+@media(max-width: 767px) {
+  h3 {
+    font-size: 26px;
+  }
+}
+
+h4 {
+  color: var(--color-text);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: unset;
+  letter-spacing: 0px;
+  line-height: 1.2em;
+}
+
+@media(max-width: 767px) {
+  h4 {
+    font-size: 20px;
+  }
+}
+
+h5 {
+  color: var(--color-text);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: unset;
+  letter-spacing: 0px;
+  line-height: 1.2em;
+}
+
+h6 {
+  color: var(--color-text);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: unset;
+  letter-spacing: 0px;
+  line-height: 1.2em;
+}
+
+p {
+  color: var(--color-text);
+  font-size: 17px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: unset;
+  letter-spacing: 0.2px;
+  line-height: 1.2em;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+button:disabled {
+  opacity: 0.5;
+}
