@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import DatePickerComponent from "../components/SingleDate/index";
+import SingleDateComponent from "../components/SingleDate/index";
 
 const meta = {
-  title: "Example/DatePicker",
-  component: DatePickerComponent,
-} satisfies Meta<typeof DatePickerComponent>;
+  title: "Example/SingleDate",
+  component: SingleDateComponent,
+} satisfies Meta<typeof SingleDateComponent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
