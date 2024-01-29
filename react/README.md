@@ -6,6 +6,12 @@ Show off some cool things that can be done in Next.js with Synaptiq branding in 
 * **How it works:** Now... I did have to stop somewhere in terms of what would be provided for time's sake, so for now, what I have created requires you to select a job from a list in which you are applying to and provide some basic information .  Once the information is applied, a mock server action is fired to collect the data and serve up a summary of what you're provided.  I should mention that it looks pretty... with some of Synaptiq's branding...  It even features field validation to enforce required fields and correct formats for various formats such emails and phone numbers.  
 * **How it inspires me:** There are pieces of technology that I have not had the privilege to dive into as of yet, but it's super exciting to get the opportunity to show off some of my abilities within this platform that I personally taught myself within the last year or so.  Next.js, Tailwind CSS, Storybook, are all fairly new tools (at least to me) and I already feel like I have been using them for years.  I hope this work assessment shows some of that confidence.  Did I mention my history with unit testing was also fairly light in the past?   Well I took a deep dive into Jest / React Testing library with this assessment and wrote some pretty detailed tests for the date picker component.  I now fully believe in testing and it's actually enjoyable to work in once you understand the user interaction when traversing in the DOM.   
 
+## Technical Background
+
+This project came shipped with Tailwind CSS which is a great CSS tool since it's favorable for server side components as it requires no client side computing, so I stuck with that for the visual design changes.  I am aware that the Polaris Shopify UI library is used for the required date picker component, but it seems (like so many others, emotion, styled components, etc.), that the UI library requires a lot of client side computing and I think Next.js is intended to bring more content back to the server. 
+
+Due to having to provide some textual information about yourself when applying for a job, I created a simple form using [React Hook Form](https://react-hook-form.com/), which I have utilized in the past.  It's pretty awesome when combined with Zod or Yup for form validation and can really handle date intense forms if scaling becomes a focus in the future. 
+
 ## Getting Started
 
 First, install dependencies:
