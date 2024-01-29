@@ -101,7 +101,7 @@ export default function ApplyForm({ job }: Props) {
       <p className="mb-4 text-sm">Here is a summary of what you have provided:</p>
       <div className="rounded p-3 border border-light bg-gray-100 mb-4">
       <p className="mb-2 text-xs">Your name is <strong className="text-secondary">{data.first_name} {data.middle_name} {data.last_name}</strong>.</p>
-      <p className="mb-2 text-xs">Your provided an email address of <strong className="text-secondary">{data.email}</strong> and a phone number of <strong className="text-secondary">{data.phone}</strong>.</p>
+      <p className="mb-2 text-xs">You have provided an email address of <strong className="text-secondary">{data.email}</strong> and a phone number of <strong className="text-secondary">{data.phone}</strong>.</p>
       <p className="mb-0 text-xs">You are available to work in this position starting on <strong className="text-secondary">{new Date(data.available).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) 
 }</strong>.</p>
       </div>
