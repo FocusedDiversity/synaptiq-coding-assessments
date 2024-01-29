@@ -89,7 +89,7 @@ describe('<DatePicker />', () => {
 
     // focus on date input field
     fireEvent.focus(input);
-    // get current dates
+    // get current days
     days = getDayButtons();
     // click the next day in the month (tomorrow)
     await user.click(days[days.findIndex(elm => elm.className.includes(SELECTORS.TODAY)) + 1]);
@@ -105,7 +105,7 @@ describe('<DatePicker />', () => {
     render(<Component defaultValue={defaultValue} />);
     const input = screen.getByRole<HTMLInputElement>('input', { name: /test/i });
     const portal = document.querySelector(SELECTORS.PORTAL);
-    let dates;
+    let days;
 
     const getDayButtons = () => {
       const popover = portal?.querySelector(SELECTORS.POPOVER);
@@ -119,13 +119,13 @@ describe('<DatePicker />', () => {
 
     // focus on date input field
     fireEvent.focus(input);
-    // get current dates
-    dates = getDayButtons();
+    // get current days
+    days = getDayButtons();
     // click the next month button
     await user.click(getNextButton());
-    dates = getDayButtons();
+    days = getDayButtons();
     // click the first day in next month
-    await user.click(dates[0]);
+    await user.click(days[0]);
 
     // verify updated input value
     expect(input.getAttribute('value')).toEqual(dateWithoutTimezone(newValue).slice(0, 10));
@@ -138,7 +138,7 @@ describe('<DatePicker />', () => {
     render(<Component defaultValue={defaultValue} />);
     const input = screen.getByRole<HTMLInputElement>('input', { name: /test/i });
     const portal = document.querySelector(SELECTORS.PORTAL);
-    let dates;
+    let days;
 
     const getDayButtons = () => {
       const popover = portal?.querySelector(SELECTORS.POPOVER);
@@ -152,13 +152,13 @@ describe('<DatePicker />', () => {
 
     // focus on date input field
     fireEvent.focus(input);
-    // get current dates
-    dates = getDayButtons();
+    // get current days
+    days = getDayButtons();
     // click the previous month button
     await user.click(getPrevButton());
-    dates = getDayButtons();
+    days = getDayButtons();
     // click the last day in next month
-    await user.click(dates[dates.length - 1]);
+    await user.click(days[days.length - 1]);
 
     // verify updated input value
     expect(input.getAttribute('value')).toEqual(dateWithoutTimezone(newValue).slice(0, 10));
