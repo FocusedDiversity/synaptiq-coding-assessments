@@ -13,7 +13,7 @@ enum SELECTORS {
   INPUT = '#test',
   POPOVER = '.Polaris-PositionedOverlay',
   DAYS = '.Polaris-DatePicker__Day:not(.Polaris-DatePicker__Day--disabled)',
-  TODAY = 'Polaris-DatePicker__Day--today',
+  SELECTED = 'Polaris-DatePicker__Day--selected',
   NEXTBUTTON = '.Polaris-DatePicker__Header .Polaris-Button:last-child',
   PREVBUTTON = '.Polaris-DatePicker__Header .Polaris-Button:first-child'
 }
@@ -92,7 +92,9 @@ describe('<DatePicker />', () => {
     // get current days
     days = getDayButtons();
     // click the next day in the month (tomorrow)
-    await user.click(days[days.findIndex(elm => elm.className.includes(SELECTORS.TODAY)) + 1]);
+    await user.click(days[days.findIndex(elm => elm.className.includes(SELECTORS.SELECTED)) + 1]);
+
+    console.log(input.getAttribute('value'));
 
     // verify updated input value
     expect(input.getAttribute('value')).toEqual(dateWithoutTimezone(newValue).slice(0, 10));
