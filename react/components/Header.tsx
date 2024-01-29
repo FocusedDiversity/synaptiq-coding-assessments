@@ -4,13 +4,16 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-const navigation = [{ name: "Date Picker", href: "/" }];
+const navigation = [
+  { name: "Single date", href: "/singleDate" },
+  { name: "Date list", href: "/dateList" },
+];
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white">
+    <header className="bg-white border-b border-neutral-300">
       <nav
         className="flex items-center justify-between p-6 lg:px-8"
         aria-label="Global"

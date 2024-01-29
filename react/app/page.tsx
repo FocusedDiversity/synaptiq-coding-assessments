@@ -1,11 +1,13 @@
-import DatePicker from "@/components/DatePicker";
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center p-24">
-      <div className="w-80">
-        <DatePicker />
-      </div>
-    </main>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/singleDate");
+  }, []);
+  return <></>;
 }

@@ -7,6 +7,7 @@ import { format } from "date-fns/format";
 import { useEffect, useRef } from "react";
 
 interface InputProps {
+  label?: string;
   selectedDate: Date | null;
   setIsDatePickerOpen: (isOpen: boolean) => void;
   setSelectedDate: (date: Date | null) => void;
@@ -17,6 +18,7 @@ interface InputProps {
 }
 
 const Input = ({
+  label = "Single date",
   selectedDate,
   setIsDatePickerOpen,
   setSelectedDate,
@@ -47,7 +49,7 @@ const Input = ({
         htmlFor="date"
         className="block text-sm font-medium leading-6 text-gray-900"
       >
-        Start date
+        {label}
       </label>
       <div className="relative mt-2 rounded-md shadow-sm">
         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">

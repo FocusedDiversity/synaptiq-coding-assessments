@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 
-import Month from "@/components/DatePicker/Month";
+import Month from "@/components/SingleDate/Month";
 import { getWeeksForMonth } from "@/lib/dates";
 
 describe("Month", () => {

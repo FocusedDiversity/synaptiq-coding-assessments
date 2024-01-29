@@ -1,12 +1,12 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 
-import DatePicker from "@/components/DatePicker";
+import SingleDate from "@/components/SingleDate";
 
-describe("DatePicker", () => {
+describe("SingleDate", () => {
   it("should render the date picker", async () => {
-    const { getByText } = render(<DatePicker month={0} year={2024} />);
+    const { getByText } = render(<SingleDate month={0} year={2024} />);
 
-    expect(getByText("Start date")).toBeInTheDocument();
+    expect(getByText("Single")).toBeInTheDocument();
 
     const input = await screen.getByTestId("date-input");
 
@@ -16,9 +16,7 @@ describe("DatePicker", () => {
   });
 
   it("should increase the month", async () => {
-    const { getByText } = render(<DatePicker month={0} year={2024} />);
-
-    expect(getByText("Start date")).toBeInTheDocument();
+    const { getByText } = render(<SingleDate month={0} year={2024} />);
 
     const input = await screen.getByTestId("date-input");
 
@@ -32,9 +30,7 @@ describe("DatePicker", () => {
   });
 
   it("should increase the month correctly if we are in december", async () => {
-    const { getByText } = render(<DatePicker month={11} year={2024} />);
-
-    expect(getByText("Start date")).toBeInTheDocument();
+    const { getByText } = render(<SingleDate month={11} year={2024} />);
 
     const input = await screen.getByTestId("date-input");
 
@@ -48,9 +44,7 @@ describe("DatePicker", () => {
   });
 
   it("should decrease the month", async () => {
-    const { getByText } = render(<DatePicker month={1} year={2024} />);
-
-    expect(getByText("Start date")).toBeInTheDocument();
+    const { getByText } = render(<SingleDate month={1} year={2024} />);
 
     const input = await screen.getByTestId("date-input");
 
@@ -64,9 +58,7 @@ describe("DatePicker", () => {
   });
 
   it("should decrease the month correctly if we are in January", async () => {
-    const { getByText } = render(<DatePicker month={0} year={2024} />);
-
-    expect(getByText("Start date")).toBeInTheDocument();
+    const { getByText } = render(<SingleDate month={0} year={2024} />);
 
     const input = await screen.getByTestId("date-input");
 

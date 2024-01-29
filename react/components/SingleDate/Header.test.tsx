@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 
-import Header from "@/components/DatePicker/Header";
+import Header from "@/components/SingleDate/Header";
 
 describe("Header", () => {
   it("should render the month and year", () => {

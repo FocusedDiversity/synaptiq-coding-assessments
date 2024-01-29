@@ -18,7 +18,7 @@ This will create a directory called `/coverage` in this directory. The output of
 
 <img width="603" alt="image" src="https://github.com/frodosamoa/synaptiq-coding-assessments/assets/1582620/0f27114b-ead4-474c-a9e7-cb76787c1d7e">
 
-### Date Picker Features & Capabilities
+### Single Date Features & Capabilities
 
 - You can use the arrow keys to change the date, once a date is selected:
   - up arrow key to decrease the date by seven days

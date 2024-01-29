@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { toDate } from "date-fns/toDate";
 
-import Input from "@/components/DatePicker/Input";
+import Input from "@/components/SingleDate/Input";
 
 describe("Input", () => {
   it("should render an empty input with a placeholder", async () => {

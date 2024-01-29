@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 
-import Week from "@/components/DatePicker/Week";
+import Week from "@/components/SingleDate/Week";
 
 describe("Week", () => {
   it("should render days", () => {
