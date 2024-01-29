@@ -23,7 +23,7 @@ const Day = ({ day, selectedDate, setSelectedDate }: DayProps) => {
   return (
     <div
       className={clsx(
-        "flex justify-center rounded-md px-3 py-1 transition-[background-color,color] select-none flex-1",
+        "flex justify-center rounded-md px-1 py-1 transition-[background-color,color] select-none flex-1",
         isSelected && "bg-neutral-600 text-white",
         day && isSelected && "hover:bg-neutral-700",
         day && !isSelected && "hover:bg-neutral-300",
