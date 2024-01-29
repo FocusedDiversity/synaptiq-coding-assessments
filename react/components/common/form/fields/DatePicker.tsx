@@ -69,7 +69,7 @@ function DatePickerWrapper({
         year: selectedDate.getFullYear(),
       });
     }
-  }, [selectedDate, fieldName, methods], );
+  }, [selectedDate, fieldName, methods],);
 
   return (
     <div className="mb-4">
@@ -86,21 +86,27 @@ function DatePickerWrapper({
         preventCloseOnChildOverlayClick
         onClose={handleOnClose}
         activator={
-          <input
-            ref={ref}
-            aria-label={label || undefined}
-            role="input"
-            required={required ? true : false}
-            id={fieldName}
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:border-secondary focus:outline-none focus:shadow-outline"
-            value={formattedValue}
-            name={fieldName}
-            type="text"
-            onFocus={() => setVisible(true)}
-            onChange={controller.field.onChange}
-            onBlur={controller.field.onBlur}
-            autoComplete="off"
-            {...rest} />
+          <>
+            <input
+              ref={ref}
+              aria-label={label || undefined}
+              role="input"
+              required={required ? true : false}
+              id={fieldName}
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:border-secondary focus:outline-none focus:shadow-outline"
+              value={formattedValue}
+              name={fieldName}
+              type="text"
+              onFocus={() => setVisible(true)}
+              onChange={controller.field.onChange}
+              onBlur={controller.field.onBlur}
+              autoComplete="off"
+              {...rest} />
+            <button className="sr-only" onClick={(e) => {
+              e.preventDefault();
+              setVisible(!visible);
+            }}>{visible ? 'close' : 'open'} date picker</button>
+          </>
         }
       >
         <Card>
