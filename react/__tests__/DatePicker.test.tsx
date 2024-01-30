@@ -42,7 +42,7 @@ describe('<DatePicker />', () => {
     expect(input).toBeInTheDocument();
   });
 
-  test('should show date pricker on focus', async () => {
+  test('should show date picker on focus', async () => {
     render(<Component />);
     const portal = document.querySelector(SELECTORS.PORTAL);
     const input = screen.getByRole<HTMLInputElement>('input');
