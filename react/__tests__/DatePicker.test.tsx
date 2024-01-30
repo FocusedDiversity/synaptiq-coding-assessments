@@ -51,7 +51,7 @@ describe('<DatePicker />', () => {
     fireEvent.focus(input);
 
     // verify popover is visible
-    expect(portal?.querySelector(SELECTORS.POPOVER)).toBeInTheDocument();
+    await waitFor(() => expect(portal?.querySelector(SELECTORS.POPOVER)).toBeInTheDocument());
   });
 
   test('should hide date picker on blur', async () => {
@@ -63,7 +63,25 @@ describe('<DatePicker />', () => {
     fireEvent.blur(input);
 
     // verify popover is hidden
-    expect(portal?.querySelector(SELECTORS.POPOVER)).toBeNull();
+    await waitFor(() => expect(portal?.querySelector(SELECTORS.POPOVER)).toBeNull());
+  });
+
+  test('should toggle date picker visiblity when pressing enter', async () => {
+    const defaultValue = new Date(2024, 0, 31); // should default to January 31, 2024
+    render(<Component defaultValue={defaultValue} />);
+    const portal = document.querySelector(SELECTORS.PORTAL);
+    const button = screen.getByRole('button');
+    // focus on screen reader only button
+    button.focus();
+    // click the button
+    userEvent.keyboard('{enter}');
+    // verify popover is visible
+    await waitFor(() => expect(portal?.querySelector(SELECTORS.POPOVER)).toBeInTheDocument());
+    button.focus();
+    // click the button again
+    userEvent.keyboard('{enter}');
+    // verify popover is hidden
+    await waitFor(() => expect(portal?.querySelector(SELECTORS.POPOVER)).toBeNull());
   });
 
   test('should use default value if provided', async () => {
