@@ -63,13 +63,13 @@ function DatePickerWrapper({
 
   useEffect(() => {
     if (selectedDate) {
-      methods.setValue(fieldName, dateWithoutTimezone(selectedDate));
+      methods.setValue(fieldName, dateWithoutTimezone(selectedDate).slice(0, 10));
       setDate({
         month: selectedDate.getMonth(),
         year: selectedDate.getFullYear(),
       });
     }
-  }, [selectedDate, fieldName, methods],);
+  }, [selectedDate, fieldName, methods]);
 
   return (
     <div className="mb-4">
@@ -89,8 +89,7 @@ function DatePickerWrapper({
           <>
             <input
               ref={ref}
-              aria-label={label || undefined}
-              role="input"
+              aria-label={label}
               required={required ? true : false}
               id={fieldName}
               className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:border-secondary focus:outline-none focus:shadow-outline"
@@ -121,7 +120,7 @@ function DatePickerWrapper({
         </Card>
       </Popover>
       {methods.formState.errors[fieldName]?.message && (
-        <p className="text-xs text-red-400 mt-2">{methods.formState.errors[fieldName]?.message as string}</p>
+        <p role="alert" className="text-xs text-red-400 mt-2">{methods.formState.errors[fieldName]?.message as string}</p>
       )}
     </div>
   )

@@ -13,11 +13,11 @@ import jobs, { JobType } from '@/constants/jobs';
 import TextField from '@/components/common/form/fields/TextField';
 import DatePicker from '@/components/common/form/fields/DatePicker';
 
-interface Props {
+export interface Props {
   job: string
 }
 
-type Inputs = z.infer<typeof ApplyFormDataSchema>;
+export type Inputs = z.infer<typeof ApplyFormDataSchema>;
 
 export default function ApplyForm({ job }: Props) {
   const [data, setData] = useState<Inputs>();

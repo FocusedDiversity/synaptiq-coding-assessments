@@ -38,14 +38,14 @@ describe('<DatePicker />', () => {
 
   test('should render properly', () => {
     render(<Component />);
-    const input = screen.getByRole<HTMLInputElement>('input');
+    const input = screen.getByLabelText<HTMLInputElement>('Test');
     expect(input).toBeInTheDocument();
   });
 
   test('should show date picker on focus', async () => {
     render(<Component />);
     const portal = document.querySelector(SELECTORS.PORTAL);
-    const input = screen.getByRole<HTMLInputElement>('input');
+    const input = screen.getByLabelText<HTMLInputElement>('Test');
 
     // focus on date input field
     fireEvent.focus(input);
@@ -57,7 +57,7 @@ describe('<DatePicker />', () => {
   test('should hide date picker on blur', async () => {
     render(<Component />);
     const portal = document.querySelector(SELECTORS.PORTAL);
-    const input = screen.getByRole<HTMLInputElement>('input');
+    const input = screen.getByLabelText<HTMLInputElement>('Test');
 
     // blur on date input field
     fireEvent.blur(input);
@@ -87,7 +87,7 @@ describe('<DatePicker />', () => {
   test('should use default value if provided', async () => {
     const defaultValue = new Date(2024, 0, 31); // should default to January 31, 2024
     render(<Component defaultValue={defaultValue} />);
-    const input = screen.getByRole<HTMLInputElement>('input', { name: /test/i });
+    const input = screen.getByLabelText<HTMLInputElement>('Test');
     expect(input.getAttribute('value')).toBe(dateWithoutTimezone(defaultValue).slice(0, 10));
   });
 
@@ -96,7 +96,7 @@ describe('<DatePicker />', () => {
     const defaultValue = new Date(2024, 0, 28);  // January 28th, 2024
     const newValue = new Date(2024, 0, 29);  // January 29th, 2024
     render(<Component defaultValue={defaultValue} />);
-    const input = screen.getByRole<HTMLInputElement>('input', { name: /test/i });
+    const input = screen.getByLabelText<HTMLInputElement>('Test');
     const portal = document.querySelector(SELECTORS.PORTAL);
     let days;
 
@@ -121,7 +121,7 @@ describe('<DatePicker />', () => {
     const defaultValue = new Date(2024, 0, 31);  // January 31st, 2024
     const newValue = new Date(2024, 1, 1);  // February 1st, 2024
     render(<Component defaultValue={defaultValue} />);
-    const input = screen.getByRole<HTMLInputElement>('input', { name: /test/i });
+    const input = screen.getByLabelText<HTMLInputElement>('Test');
     const portal = document.querySelector(SELECTORS.PORTAL);
     let days;
 
@@ -153,7 +153,7 @@ describe('<DatePicker />', () => {
     const defaultValue = new Date(2024, 1, 1);  // February 1st, 2024
     const newValue = new Date(2024, 0, 31);  // January 31st, 2024
     render(<Component defaultValue={defaultValue} />);
-    const input = screen.getByRole<HTMLInputElement>('input', { name: /test/i });
+    const input = screen.getByLabelText<HTMLInputElement>('Test');
     const portal = document.querySelector(SELECTORS.PORTAL);
     let days;
 

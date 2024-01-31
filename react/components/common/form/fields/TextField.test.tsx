@@ -27,14 +27,21 @@ describe('<TextField />', () => {
 
   test('should render properly', () => {
     render(<Component />);
-    const input = screen.getByRole<HTMLInputElement>('input', { name: /test/i });
+    const input = screen.getByRole<HTMLInputElement>('textbox');
     expect(input).toBeInTheDocument();
+  });
+
+  test('should show label if provided', async () => {
+    render(<Component />);
+    const input = screen.getByRole<HTMLInputElement>('textbox');
+    expect(input.previousSibling?.nodeName.toLowerCase() === 'label')
+    expect(input.getAttribute('aria-label')).toBe('Test');
   });
 
   test('should show error if required and value is empty', async () => {
     const user = userEvent.setup();
     render(<RequiredComponent />);
-    const input = screen.getByRole<HTMLInputElement>('input', { name: /test required/i });
+    const input = screen.getByRole<HTMLInputElement>('textbox');
     await user.type(input, 'test');
     // verify field is invalid
     expect(input).toBeInvalid();

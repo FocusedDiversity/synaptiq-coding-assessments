@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useWatch, useFormContext, useController } from 'react-hook-form';
 
 interface Props {
@@ -15,7 +15,7 @@ function TextFieldWrapper({
   label,
   required,
   fieldName,
-  defaultValue = new Date(),
+  defaultValue,
   ...rest
 }: Props, ref: React.ForwardedRef<HTMLInputElement>) {
   const value = useWatch({ name: fieldName });
@@ -33,8 +33,7 @@ function TextFieldWrapper({
       </label>}
       <input
         ref={ref}
-        aria-label={label || undefined}
-        role="input"
+        aria-label={label}
         required={required ? true : false}
         id={fieldName}
         name={fieldName}
@@ -46,7 +45,7 @@ function TextFieldWrapper({
         autoComplete="off"
         {...rest} />
       {methods.formState.errors[fieldName]?.message && (
-        <p className="text-xs text-red-400 mt-2">{methods.formState.errors[fieldName]?.message as string}</p>
+        <p role="alert" className="text-xs text-red-400 mt-2">{methods.formState.errors[fieldName]?.message as string}</p>
       )}
     </div>
   )
